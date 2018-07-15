@@ -4,7 +4,8 @@ require 'vendor/autoload.php';
 
 function highCard($card_stack, $players_cards) {
   $intersect = array_intersect(array_keys($card_stack), $players_cards);
-  return $card_stack[reset($intersect)];
+  $matching_card = reset($intersect);
+  return $matching_card ? $card_stack[$matching_card] : NULL;
 }
 
 
@@ -29,6 +30,44 @@ class Test extends TestCase {
     ];
 
     $expected = 85561; 
+    $actual = highCard($card_stack, $players_cards);
+
+    $this->assertEquals($actual, $expected);
+  }
+
+  public function testNoCards() {
+    $card_stack = [
+    'Ace of Spades' => 11379,
+    'King of Clubs' => 85561,
+    'Queen of Hearts' => 703,
+    'Jack of Diamonds' => 6222,
+    'Nine of Clubs' => 511288,
+    ];
+
+    $players_cards = [
+    'One of Spades',
+    'Six of Hearts',
+    'Ace of Clubs'
+    ];
+
+    $expected = NULL;
+    $actual = highCard($card_stack, $players_cards);
+
+    $this->assertEquals($actual, $expected);
+  }
+
+  public function testNoMatching() {
+    $card_stack = [
+    'a' => 65,
+    'b' => 66,
+    'c' => 67
+    ];
+
+    $players_cards = [
+      'e','f'
+    ];
+
+    $expected = NULL;
     $actual = highCard($card_stack, $players_cards);
 
     $this->assertEquals($actual, $expected);
