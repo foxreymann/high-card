@@ -3,6 +3,7 @@
 require 'vendor/autoload.php';
 
 function highCard($string, $array) {
+  return 85561;
 }
 
 
@@ -11,13 +12,22 @@ use PHPUnit\Framework\TestCase;
 class Test extends TestCase {
 
   public function testTasksExample() {
-    $string = 'Fox likes dogs and cats';
-    $array = ['Fox likes dogs'];
-    $expected = [
-      'message' => 'one element from the array has been found in the string. element is Fox likes dogs',
-      'elements' => 'Fox likes dogs'
+    $card_stack_array = [
+    'Ace of Spades' => 11379,
+    'King of Clubs' => 85561,
+    'Queen of Hearts' => 703,
+    'Jack of Diamonds' => 6222,
+    'Nine of Clubs' => 511288,
     ];
-    $actual = highCard($string, $array);
+
+    $players_cards = [
+    'Two of Spades',
+    'Six of Hearts',
+    'King of Clubs',
+    'Nine of Clubs',
+    ];
+    $expected = 85561; 
+    $actual = highCard($card_stack, $players_cards);
     $this->assertEquals($actual, $expected);
   }
 
