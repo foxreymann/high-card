@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 
 function highCard($card_stack, $players_cards) {
   $intersect = array_intersect(array_keys($card_stack), $players_cards);
-  $matching_card = reset($intersect);
+  $matching_card = reset($intersect); // return first array element
   return $matching_card ? $card_stack[$matching_card] : NULL;
 }
 
@@ -68,6 +68,23 @@ class Test extends TestCase {
     ];
 
     $expected = NULL;
+    $actual = highCard($card_stack, $players_cards);
+
+    $this->assertEquals($actual, $expected);
+  }
+
+  public function testDobuleMatching() {
+    $card_stack = [
+    'a' => 65,
+    'b' => 66,
+    'c' => 67
+    ];
+
+    $players_cards = [
+      'e','f','b','b'
+    ];
+
+    $expected = 66;
     $actual = highCard($card_stack, $players_cards);
 
     $this->assertEquals($actual, $expected);
