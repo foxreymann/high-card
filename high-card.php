@@ -1,15 +1,24 @@
 <?php
 
-$card_stack_array = [
-'Ace of Spades' => 11379,
-'King of Clubs' => 85561,
-'Queen of Hearts' => 703,
-'Jack of Diamonds' => 6222,
-'Nine of Clubs' => 511288,
-];
+require 'vendor/autoload.php';
 
-var_export($card_stack_array);
+function highCard($string, $array) {
+}
 
-foreach ($card_stack_array as $card => $value) {
-    echo "{$card} => {$value} ";
+
+use PHPUnit\Framework\TestCase;
+
+class Test extends TestCase {
+
+  public function testTasksExample() {
+    $string = 'Fox likes dogs and cats';
+    $array = ['Fox likes dogs'];
+    $expected = [
+      'message' => 'one element from the array has been found in the string. element is Fox likes dogs',
+      'elements' => 'Fox likes dogs'
+    ];
+    $actual = highCard($string, $array);
+    $this->assertEquals($actual, $expected);
+  }
+
 }

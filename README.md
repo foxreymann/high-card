@@ -1,3 +1,9 @@
+# run test
+
+phpunit high-card.php
+
+# task
+
 php function
 
 card_stack_array = [
