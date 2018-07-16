@@ -23,13 +23,13 @@ class Test extends TestCase {
     ];
 
     $players_cards = [
+    'Nine of Clubs',
     'Two of Spades',
     'Six of Hearts',
     'King of Clubs',
-    'Nine of Clubs',
     ];
 
-    $expected = 85561; 
+    $expected = 85561;
     $actual = highCard($card_stack, $players_cards);
 
     $this->assertEquals($actual, $expected);
