@@ -3,8 +3,8 @@
 require 'vendor/autoload.php';
 
 function highCard($card_stack, $players_cards) {
-  $intersect = array_intersect(array_keys($card_stack), $players_cards);
-  $matching_card = reset($intersect); // return first array element
+  $intersection = array_intersect(array_keys($card_stack), $players_cards);
+  $matching_card = reset($intersection); // return first array element
   return $matching_card ? $card_stack[$matching_card] : NULL;
 }
 
